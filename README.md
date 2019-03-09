@@ -3,7 +3,5 @@ Get Token Facebook CLI
 
 
 How To Use:
-Edit the script to enter your facebook username & password
-
-
+just run in terminal like cmd
 run with php
