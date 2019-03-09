@@ -1,10 +1,10 @@
 <?php
+error_reporting(0);
 /* 
 	by strelitzia amos
-  api_key from sgbtools
+    api_key from sgbtools
 */
-$efbi['username'] = 'username/email';
-$efbi['password'] = 'password fb';
+
 
 function gettoken($data){
 	$ch = curl_init();
@@ -18,8 +18,14 @@ function gettoken($data){
 	$result = curl_exec($ch);
 	curl_close ($ch);
 	$res = json_decode($result, true);
-	return $res['access_token'] ? $res['access_token'] : "Failed get token";
+	return $res['access_token'] ? $res['access_token'] : "Failed get token, please check details here: ".PHP_EOL.$result;
 }
 echo "Get FB Token".PHP_EOL.PHP_EOL;
+echo "Username : ";
+$efbi['username'] = trim(fgets(STDIN));
+echo "Password : ";
+$efbi['password'] = trim(fgets(STDIN));
+echo PHP_EOL;
+
 echo "Your token is :".PHP_EOL;
 echo gettoken($efbi).PHP_EOL;
